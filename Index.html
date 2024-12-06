@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry, My Love</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
+            overflow: hidden;
+        }
+
+        /* Opening Page Styles */
+        .opening-page {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5em; /* Smaller text size */
+            text-align: center;
+        }
+
+        .opening-page p {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 3em;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            font-size: 1.5em; /* Adjusted font size */
+            color: #ff6b6b;
+            text-align: center;
+        }
+
+        /* GIF Styling */
+        .opening-page img {
+            width: 250px; /* Adjust the size of the GIF */
+            margin-top: 20px;
+            border-radius: 10px;
+            animation: pulse 1.5s infinite; /* Animation for GIF */
+        }
+
+        /* Main Apology Page Styles */
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2em;
+            border-radius: 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease;
+            display: none;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #ff6b6b;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            margin-bottom: 1em;
+        }
+
+        p {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 1.5em;
+        }
+
+        .heart {
+            font-size: 4em;
+            color: #ff6b6b;
+            margin: 1em 0;
+            animation: pulse 1.5s infinite;
+        }
+
+        button {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 0.8em 2em;
+            font-size: 1.2em;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        button:hover {
+            background: #e55050;
+            transform: scale(1.1);
+        }
+
+        /* Keyframes for animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Opening Page -->
+    <div class="opening-page">
+        <p>Please wait a moment sayang, this page will be open for you 💖</p>
+        <!-- Embedding a cute GIF -->
+        <img src="https://media.giphy.com/media/gdvwXxMeUVfx4OWtcC/giphy.gif?cid=ecf05e474a4ove426trua93pt8n52g1dy7p14otpo7m5q7xq&ep=v1_gifs_search&rid=giphy.gif&ct=g" alt="Cute GIF">
+    </div>
+
+    <!-- Main Apology Page -->
+    <div class="container">
+        <h1>Sayangg🥲</h1>
+        <p>Sayangg saya mintak maaf. Saya sedar saya salah sayangg. Jom fix sayangg please step by step, banyak lagi saya kena tahu apa yang awak tak suka saya buat, apa yang awak tak suka saya tanya🥹. </p>
+        <p>Please forgive me si cantik and let’s make things right again. Sorry again and i love you sayang❤️</p>
+        
+        <!-- Embedding the heart GIF image -->
+        <div class="heart">
+            <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbDlweG04bWhteHF6amFxamp1YW1vdWE0bzBneWRnbnVzNGppYnE2aiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ysp6c2yH1U6Tvi5APK/giphy.gif" alt="Heart GIF" width="200">
+        </div>
+
+        <!-- Yes or No buttons -->
+        <div class="yes-no-buttons">
+            <button onclick="sendWhatsApp()">Yes, yeayyy ps: pukul 1 nanti saya nak call kamu</button>
+            <button onclick="cancelCall()">No, hm (sad face)</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to open WhatsApp with a pre-filled message when "Yes" is clicked
+        function sendWhatsApp() {
+            // The phone number to send the message to (replace with your number, including country code)
+            const phoneNumber = '1234567890'; // Replace this with your phone number
+            const message = 'Hi, I need to call you. Please reply.'; // The pre-filled message
+            const whatsappLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            
+            // Redirect to WhatsApp
+            window.open(whatsappLink, '_blank');
+        }
+
+        // Function to be executed if the user clicks "No"
+        function cancelCall() {
+            alert("You chose not to call. I understand, and I’ll give you space.");
+        }
+
+        // Transition to the main page after 10 seconds
+        setTimeout(() => {
+            document.querySelector('.opening-page').style.display = 'none'; // Hide opening page
+            document.querySelector('.container').style.display = 'block'; // Show main content
+        }, 10000); // 10 seconds delay before showing the main content
+    </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
